@@ -262,7 +262,84 @@ class purchase_order(models.Model):
                   'hub_days', 'buffer_days', 'customer_partner_days_add', 'requested_delivery')
 
     def calculate_shipping_date(self):
-	return 0,0
+        """
+        requested_delivery -> When goods should be at the customer site
+        hub_days -> Number of days that we must add because of forwarding
+        buffer_days -> Number of days to add to this PO delivery
+        customer_partner_days_add -> Days to add because of strange customer
+        shipping_days -> Days for shipping
+
+        partner_days_early Days of early delivery accepted by customer
+        partner_days_delay Days of late delivery accepted by customer
+
+        :return:
+        """
+        self.ensure_one()
+        if len(self.order_line)==0:
+            return None # Unable to calculate when we have no PO lines.
+
+        _logger.info("%s Calculate shipping date %s", self, [x.sale_order for x in self.order_line])
+        sales = set([x.sale_order for x in self.order_line if x.sale_order ])
+
+        if not sales:
+            self.shipping_calc_status = _('Unable to calculate shipping date since sales order is not set. PO=%s' % self.name)
+            return None
+        elif len(sales)>1:
+            self.shipping_calc_status =  _('Unable to calculate shipping date since PO is pointing to several sales orders. PO=%s' % self.name)
+            _logger.info('Unable to calculate shipping date since PO is pointing to several sales orders. PO=%s', self.name)
+            solist = [(x, x.requested_delivery_date) for x in sales]
+            print "SOLIST1", solist
+            def sf(x,y):
+                print "SF", x[1], y[1]
+                return y[1] > x[1] and -1 or 1
+            solist.sort(sf)
+            sale = solist[0][0] # The first one
+        else: # The length is 1
+            sale = sales.pop()
+
+        self.requested_delivery = sale.requested_delivery_date
+        print "CALCULATE_SHIPPING_DATE", self, sale
+        #required_shipping_date = fields.Date.from_string(sales.pop().requested_delivery_date) - datetime.timedelta(days=10)
+        if not sale.requested_delivery_date:
+            _logger.info('Unable to calculate shipping date since SO does not have requested delivery date. %s', sale.name)
+            self.shipping_calc_status = 'Unable to calculate shipping date since SO does not have requested delivery date. SO=%s' % (self.sale_id.name)
+            #return '2015-01-01'
+            return None
+
+        def subtract_days(date, days):
+            print "SUBTRACT_DAYS", date, days
+            date -= datetime.timedelta(days=days)
+            print "SUBTRACTED_DAYS", date, days
+            return date
+
+        required_shipping_date = fields.Date.from_string(self.requested_delivery)
+        _logger.info('Required shipping date calculation req %s', required_shipping_date)
+        required_shipping_date = subtract_days(required_shipping_date, self.shipping_days)
+        _logger.info('Required shipping date calculation ship %s', required_shipping_date)
+        required_shipping_date = subtract_days(required_shipping_date, self.customer_partner_days_add)
+        _logger.info('Required shipping date calculation cust %s', required_shipping_date)
+        required_shipping_date = subtract_days(required_shipping_date, self.buffer_days)
+        _logger.info('Required shipping date calculation buff %s', required_shipping_date)
+        required_shipping_date = subtract_days(required_shipping_date, self.hub_days)
+        _logger.info('Required shipping date calculation hub %s', required_shipping_date)
+        while required_shipping_date.weekday() > 4: # Skip the weekend
+            _logger.info('Subtracting a day because of weekend: %d' % required_shipping_date.weekday())
+            required_shipping_date = subtract_days(required_shipping_date, 1)
+        _logger.info('Required shipping date calculation final %s', required_shipping_date)
+
+        if required_shipping_date:
+            self.shipping_calc_status = 'Calculated shipping date %s' % fields.Date.to_string(required_shipping_date)
+            for line in self.order_line:
+                _logger.info('Updating date planned for line %s', line)
+                line.date_planned = fields.Date.to_string(required_shipping_date)
+        _logger.info('Reading planned date')
+        x = self.minimum_planned_date
+        _logger.info('Reading planned date %s', x)
+        print "NEW DATE", x
+
+        self.shipping_calc_status = 'Calculated req shipping date %s' % fields.Date.to_string(required_shipping_date)
+        return required_shipping_date
+
 
     @api.multi
     def onchange_destination(self):
