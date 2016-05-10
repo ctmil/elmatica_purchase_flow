@@ -254,7 +254,8 @@ class purchase_order(models.Model):
     def _calc_shipping_days(self):
         for order in self:
             order.sudo().recalc_shipping_days()
-            req_shipping_date, delivery_date = order.sudo().calculate_shipping_date()
+            # req_shipping_date, delivery_date = order.sudo().calculate_shipping_date()
+            delivery_date = order.sudo().calculate_shipping_date()
             order.updated_delivery = delivery_date
     
 
