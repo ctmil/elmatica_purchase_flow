@@ -375,36 +375,33 @@ class purchase_order(models.Model):
             else:
                 order.consider_wkng_gerber = False
 
-    """
+    
     @api.multi
     def _calc_comp_buffer_days(self):
-        " " "
+        """
         Computed buffer days is the difference between in-leadtime and out-leadtime of the SSO...
-        " " "
+        """
         for order in self:
             if order.tooling_po:
                 continue
 
-            super_order = order.sudo().sale_id.super_order_id
-            if not super_order:
-                continue
-
             po_products = [x.product_id for x in order.order_line]
 
-            pcb_superline = None
-            for superline in super_order.order_line:
-                if superline.order_id == order.sale_id and superline.product_id in po_products:
-                    pcb_superline = superline
-                    assert superline.order_id == order.sale_id, 'PO %s superline %s has order_id %s but we have sale_id %s' % (order.name, superline, superline.order_id, order.sale_id)
-                    break
+            #pcb_superline = None
+            #for superline in super_order.order_line:
+            #    if superline.order_id == order.sale_id and superline.product_id in po_products:
+            #        pcb_superline = superline
+            #        assert superline.order_id == order.sale_id, 'PO %s superline %s has order_id %s but we have sale_id %s' % (order.name, superline, superline.order_id, order.sale_id)
+            #       break
 
-            if not pcb_superline:
-                _logger.info('No PCB SSO line found for po %s so %s product %s', order.name, order.sale_id, po_products)
-                continue
-            buff_d = pcb_superline.out_delay and pcb_superline.out_delay - pcb_superline.delay or 0
-
+            #if not pcb_superline:
+            #    _logger.info('No PCB SSO line found for po %s so %s product %s', order.name, order.sale_id, po_products)
+            #    continue
+            #buff_d = pcb_superline.out_delay and pcb_superline.out_delay - pcb_superline.delay or 0
+	    # gustavo
+	    buff_d = 0
             order.computed_buffer_days = buff_d
-    """
+    
     """
     @api.multi
     def _calc_expected_delivery(self):
@@ -469,7 +466,7 @@ class purchase_order(models.Model):
     computed_buffer_days = fields.Integer('Computed buffer days', compute='_calc_comp_buffer_days')
     buffer_days = fields.Integer('Buffer days', required=True, readonly=False, default=0, help='Buffer days. A number of days to be added to the date calculation')
     #supplier_partner_days_add = fields.Integer(related='')
-    #customer_partner_days_add = fields.Integer('Additional days', compute='_calc_add_days', help='The number of additional days for the customer.')
+    customer_partner_days_add = fields.Integer('Additional days', compute='_calc_add_days', help='The number of additional days for the customer.')
     #shipping_days = fields.Integer('Days shipping', help='Number of days in shipping.', compute='_calc_shipping_days')
     #requested_delivery = fields.Date('Requested delivery', related='sale_id.requested_delivery_date', readonly=True, help='The requested delivery date')
     updated_delivery = fields.Date('Updated delivery date', readonly=True)

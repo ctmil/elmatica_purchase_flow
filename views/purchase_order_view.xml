@@ -27,7 +27,7 @@
                     <field name="computed_buffer_days" />
                     <field name="buffer_days"/>
                     <field name="delivery_date" />
-                    <!-- <field name="customer_partner_days_add"/> -->
+                    <field name="customer_partner_days_add"/>
                     <!-- <field name="shipping_days"/> -->
                     <!-- <field name="requested_delivery"/> -->
 <!--                    <field name="deviating_shipping_date" invisible="1" />
