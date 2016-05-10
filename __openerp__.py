@@ -33,7 +33,7 @@
         'views/purchase_order_view.xml',
         'views/res_partner_view.xml',
         # 'views/super_sales_order.xml',
-        'views/stock_picking_view.xml',
+        #'views/stock_picking_view.xml',
         'views/purchase_order_line_view.xml',
         'views/delivery_mismatch.xml',
         'data/shipping_days.xml',

@@ -382,8 +382,8 @@ class purchase_order(models.Model):
         Computed buffer days is the difference between in-leadtime and out-leadtime of the SSO...
         """
         for order in self:
-            if order.tooling_po:
-                continue
+            #if order.tooling_po:
+            #    continue
 
             po_products = [x.product_id for x in order.order_line]
 
