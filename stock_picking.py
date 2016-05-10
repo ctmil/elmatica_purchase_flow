@@ -46,13 +46,13 @@ class stock_picking(models.Model):
             return info
         #assert False
 
-    @api.multi
-    def _calc_super_order_id(self):
-        for picking in self:
-            po = picking.po_id
-            picking.super_order_id = po and po.super_order_id or None
+    #@api.multi
+    #def _calc_super_order_id(self):
+    #    for picking in self:
+    #        po = picking.po_id
+    #        picking.super_order_id = po and po.super_order_id or None
 
-    super_order_id = fields.Many2one('super.sales.order', string='Super Order Reference', compute='_calc_super_order_id')
+    #super_order_id = fields.Many2one('super.sales.order', string='Super Order Reference', compute='_calc_super_order_id')
 
 class stock_move(models.Model):
     _inherit = 'stock.move'

@@ -28,16 +28,16 @@
                     <field name="buffer_days"/>
                     <field name="delivery_date" />
                     <field name="customer_partner_days_add"/>
-                    <!-- <field name="shipping_days"/> -->
-                    <!-- <field name="requested_delivery"/> -->
-<!--                    <field name="deviating_shipping_date" invisible="1" />
-                    <field name="updated_delivery" attrs="{'invisible' : [('deviating_shipping_date', '=', False)]}" /> -->
-                    </field>
-                <!--
+                    <field name="shipping_days"/> 
+                    <field name="requested_delivery"/> 
+                    <field name="deviating_shipping_date" invisible="1" />
+	                    <field name="updated_delivery" attrs="{'invisible' : [('deviating_shipping_date', '=', False)]}" />
+                </field>
+                
                 <field name="date_approve" position="after">
                     <field name="partner_days_early"/>
                     <field name="partner_days_delay"/>
-                </field> -->
+                </field>
                 <field name="minimum_planned_date" position="attributes">
                     <attribute name="string">Expected Shipping Date</attribute>
                 </field>

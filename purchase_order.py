@@ -89,13 +89,13 @@ class purchase_order(models.Model):
             raise exceptions.Warning(warning)
         else:
             return
-
+    """
     @api.multi
     def _calc_deviating_shipping_date(self):
         for order in self:
             deviation, warning = order.get_deviation_status()
             order.deviating_shipping_date = bool(deviation)
-
+    """
     def get_deviation_status(self):
         self.ensure_one()
         required_date = fields.Date.from_string(self.minimum_planned_date)
@@ -248,7 +248,7 @@ class purchase_order(models.Model):
             _logger.info('shipping days for order %s is %d since the country is %s', self.name, self.shipping_days, destination.code)
         _logger.info('Changed shipping days from %d to %d' % (old_shipping_days, self.shipping_days))
 
-    """
+    
     @api.multi
     @api.depends('sale_id')
     def _calc_shipping_days(self):
@@ -256,7 +256,7 @@ class purchase_order(models.Model):
             order.sudo().recalc_shipping_days()
             req_shipping_date, delivery_date = order.sudo().calculate_shipping_date()
             order.updated_delivery = delivery_date
-    """
+    
 
     @api.onchange('dest_address_id', 'sale_id', 'shipping_days',
                   'hub_days', 'buffer_days', 'customer_partner_days_add', 'requested_delivery')
@@ -282,13 +282,13 @@ class purchase_order(models.Model):
             else:                            
                 order.hub_days = supplier.partner_add_days
    
-    """
+    
     @api.multi
     def _calc_add_days(self):
         for order in self:
             if order.customer_id and order.sudo().customer_id.partner_add_days:
                 order.customer_partner_days_add = order.sudo().customer_id.partner_add_days
-    """
+    
     @api.onchange('buffer_days')
     def onchange_buffer_days(self):
 	# TBRI
@@ -458,8 +458,8 @@ class purchase_order(models.Model):
     sale_id = fields.Many2one('sale.order', compute='_calc_sale', string='Sale Order')
     matching_product_po = fields.Many2one('purchase.order', compute='_calc_product_po', string='Related Purchase Order')
     customer_contact = fields.Many2one('res.partner', compute='_calc_customer_contact')
-    #partner_days_early = fields.Integer(related='customer_id.partner_delivery_early', readonly=True, help='The number of days before the expected date the customer will accept.')
-    #partner_days_delay = fields.Integer(related='customer_id.partner_delivery_late', readonly=True, help='The number of days after the expected date the customer will accept')
+    partner_days_early = fields.Integer(related='customer_id.partner_delivery_early', readonly=True, help='The number of days before the expected date the customer will accept.')
+    partner_days_delay = fields.Integer(related='customer_id.partner_delivery_late', readonly=True, help='The number of days after the expected date the customer will accept')
     hub_days = fields.Integer('Hub days', compute='_calc_hub_days', help='Hub days: \n'
                                                                          'If the delivery method of the supplier is EXW (ExWorks), hub days is 0.\n'
                                                                          'Otherwise it is set to the additional days parameter of the supplier.')
@@ -467,11 +467,11 @@ class purchase_order(models.Model):
     buffer_days = fields.Integer('Buffer days', required=True, readonly=False, default=0, help='Buffer days. A number of days to be added to the date calculation')
     #supplier_partner_days_add = fields.Integer(related='')
     customer_partner_days_add = fields.Integer('Additional days', compute='_calc_add_days', help='The number of additional days for the customer.')
-    #shipping_days = fields.Integer('Days shipping', help='Number of days in shipping.', compute='_calc_shipping_days')
-    #requested_delivery = fields.Date('Requested delivery', related='sale_id.requested_delivery_date', readonly=True, help='The requested delivery date')
+    shipping_days = fields.Integer('Days shipping', help='Number of days in shipping.', compute='_calc_shipping_days')
+    requested_delivery = fields.Date('Requested delivery', related='sale_id.requested_delivery_date', readonly=True, help='The requested delivery date')
     updated_delivery = fields.Date('Updated delivery date', readonly=True)
     delivery_date = fields.Date('Delivery date', compute='_get_delivery_date')
-    #deviating_shipping_date = fields.Boolean('Deviating shipping date', help='Confirmed shipping date is too late or too early', compute='_calc_deviating_shipping_date')
+    deviating_shipping_date = fields.Boolean('Deviating shipping date', help='Confirmed shipping date is too late or too early', compute='_calc_deviating_shipping_date')
     #expected_delivery = fields.Date('Expected delivery date', compute='_calc_expected_delivery')
     shipping_calc_status = fields.Char('Status', readonly=True)
     wkng_gerber = fields.Boolean('Wkng Gerber', compute='_calc_wkng_gerber')
