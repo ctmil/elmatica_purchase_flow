@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="confirm_purchase_order_form" model="ir.ui.view">
+            <field name="name">purchase.order.form.confirm.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <field name="origin" position="after">
+                    <field name="customer_ref" />
+                    <!-- <field name="deviating_shipping_date" invisible="1" /> -->
+                </field>
+                <field name="date_order" position="after">
+                    <field name="confirmed_date"/>
+                    <group colspan="4">
+                        <button name="action_confirm_order" type="object" string="Confirm to Customer"/>
+                    </group>
+                    <field name="sale_id" />
+                    <!--  field name="super_order_id" / -->
+                </field>
+                <field name="minimum_planned_date" position="after">
+                    <field name="shipping_calc_status" nolabel="1"/>
+		    <group>
+	                    <button name="force_calculate_shipping_date" type="object" string="Calculate"/>
+		    </group>
+                    <field name="hub_days"/>  
+                    <field name="computed_buffer_days" />
+                    <field name="buffer_days"/>
+                    <field name="delivery_date" />
+                    <!-- <field name="customer_partner_days_add"/> -->
+                    <!-- <field name="shipping_days"/> -->
+                    <!-- <field name="requested_delivery"/> -->
+<!--                    <field name="deviating_shipping_date" invisible="1" />
+                    <field name="updated_delivery" attrs="{'invisible' : [('deviating_shipping_date', '=', False)]}" /> -->
+                    </field>
+                <!--
+                <field name="date_approve" position="after">
+                    <field name="partner_days_early"/>
+                    <field name="partner_days_delay"/>
+                </field> -->
+                <field name="minimum_planned_date" position="attributes">
+                    <attribute name="string">Expected Shipping Date</attribute>
+                </field>
+                <field name="picking_type_id" position="after">
+                    <field name="consider_wkng_gerber" invisible="1" />
+                    <field name="tooling_order" invisible="1" />
+                    <field name="wkng_gerber_field" attrs="{'invisible': [('consider_wkng_gerber','=',False)]}"/>
+                    <!-- field name="matching_product_po" / --> <!-- attrs="{'invisible': [('tooling_po','=',False)]}" /> -->
+                </field>
+                <xpath expr="//button[@id='draft_confirm']" position="before">
+                        <field name="wkng_gerber" invisible="1"/>
+                    </xpath>
+                <!--
+                <xpath expr="//button[@id='draft_confirm']" position="replace">
+                        <button name="purchase_confirm" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('wkng_gerber','=',False)]}" string="Confirm Order" id="draft_confirm"/>
+                    </xpath>
+                <xpath expr="//button[@id='bid_confirm']" position="replace">
+                        <button name="purchase_confirm" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('wkng_gerber','=',False)]}" string="Confirm Order" class="oe_highlight" id="bid_confirm"/>
+                </xpath>
+                -->
+                <xpath expr="//button[@id='draft_confirm']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', '!=', 'draft'), ('wkng_gerber','=',False)] }</attribute>
+                    <attribute name="states">()</attribute>
+                </xpath>
+                <xpath expr="//button[@id='bid_confirm']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', '!=', 'bid'), ('wkng_gerber','=',False)] }</attribute>
+                    <attribute name="states">()</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_order_form_creationdate" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit2</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="confirm_purchase_order_form"/>
+            <field name="arch" type="xml">
+                <field name="date_order" position="replace">
+                    <label for="date_order" string="Order Creation Date" />
+                    <field name="date_order" string="Order Creation Date" invisible="0" nolabel="1" />
+                    <!--<label string="HEI" /> -->
+                    <!-- <attribute name="string">Order Creation Date</attribute> -->
+                </field>
+            </field>
+        </record>
+
+
+        <!-- https://www.odoo.com/forum/help-1/question/how-to-search-po-by-product-name-search-on-one2many-fields-31030 -->
+        <record model="ir.ui.view" id="purchase_order_search_inherit">
+            <field name="name">purchase.order.list.select.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//filter[@name='draft']" position="after">
+                    <field name="order_line" invisible="1"/>
+                    <label string="hei"/>
+                    <field name="order_line" string="Sale order"
+                           filter_domain="[('order_line.sale_order.name','ilike',self)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="purchase_order_tree_confirmed_date">
+            <field name="name">purchase.order.list.confirmed_date</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree" />
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="confirmed_date" string="Confirmed date" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="super_sales_order_form_view_wkng_gerber" model="ir.ui.view">
+            <field name="name">elmatica.super.sales.form1.wkng_gerber</field>
+            <field name="model">super.sales.order</field>
+            <field name="inherit_id" ref="elmatica_super_sales_order.super_sales_order_form_view"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="wkng_gerber"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

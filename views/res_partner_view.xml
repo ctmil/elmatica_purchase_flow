@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_partner_form_delivery_method" model="ir.ui.view">
+            <field name="name">res.partner.delivery_method</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <field name="active" position="after">
+                    <field name="delivery_method" attrs="{'invisible':[('supplier','!=',True)]}" />
+                </field>
+                <field name="ref" position="after">
+                    <field name="wkng_gerber" />
+                </field>
+            </field>
+        </record>
+
+
+</data>
+    </openerp>

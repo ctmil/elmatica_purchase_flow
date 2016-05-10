@@ -1,0 +1,892 @@
+<openerp>
+    <data>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_AFGHANISTAN">
+            <field ref="base.af" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ALBANIA">
+            <field ref="base.al" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ALGERIA">
+            <field ref="base.dz" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_AMERICANSAMOA">
+            <field ref="base.as" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ANDORRA">
+            <field ref="base.ad" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ANGOLA">
+            <field ref="base.ao" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ANGUILLA">
+            <field ref="base.ai" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ANTIGUA">
+            <field ref="base.ag" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ARGENTINA">
+            <field ref="base.ar" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ARMENIA">
+            <field ref="base.am" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ARUBA">
+            <field ref="base.aw" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_AUSTRALIA">
+            <field ref="base.au" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_AUSTRIA">
+            <field ref="base.at" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_AZERBAIJAN">
+            <field ref="base.az" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BAHAMAS">
+            <field ref="base.bs" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BAHRAIN">
+            <field ref="base.bh" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BANGLADESH">
+            <field ref="base.bd" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BARBADOS">
+            <field ref="base.bb" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BELARUS">
+            <field ref="base.by" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BELGIUM">
+            <field ref="base.be" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BELIZE">
+            <field ref="base.bz" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BENIN">
+            <field ref="base.bj" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BERMUDA">
+            <field ref="base.bm" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BHUTAN">
+            <field ref="base.bt" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BOLIVIA">
+            <field ref="base.bo" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BOSNIAANDHERZEGOVINA">
+            <field ref="base.ba" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BOTSWANA">
+            <field ref="base.bw" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BRAZIL">
+            <field ref="base.br" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BRUNEI">
+            <field ref="base.bn" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BULGARIA">
+            <field ref="base.bg" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BURKINAFASO">
+            <field ref="base.bf" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_BURUNDI">
+            <field ref="base.bi" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CAMBODIA">
+            <field ref="base.kh" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CAMEROON">
+            <field ref="base.cm" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CANADA">
+            <field ref="base.ca" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CAPEVERDE">
+            <field ref="base.cv" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CAYMANISLANDS">
+            <field ref="base.ky" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CENTRALAFRICANREPUBLIC">
+            <field ref="base.cf" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CHAD">
+            <field ref="base.td" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CHILE">
+            <field ref="base.cl" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CHINAPEOPLESREPUBLIC">
+            <field ref="base.cn" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_COLOMBIA">
+            <field ref="base.co" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_COMOROS">
+            <field ref="base.km" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CONGO">
+            <field ref="base.cg" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CONGOTHEDEMOCRATICREPUBLICOF">
+            <field ref="base.cd" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_COOKISLANDS">
+            <field ref="base.ck" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_COSTARICA">
+            <field ref="base.cr" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_COTEDIVOIRE">
+            <field ref="base.ci" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CROATIA">
+            <field ref="base.hr" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CUBA">
+            <field ref="base.cu" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CYPRUS">
+            <field ref="base.cy" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_CZECHREPUBLICTHE">
+            <field ref="base.cz" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_DENMARK">
+            <field ref="base.dk" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_DJIBOUTI">
+            <field ref="base.dj" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_DOMINICA">
+            <field ref="base.dm" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_DOMINICANREPUBLIC">
+            <field ref="base.do" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ECUADOR">
+            <field ref="base.ec" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_EGYPT">
+            <field ref="base.eg" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ELSALVADOR">
+            <field ref="base.sv" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ERITREA">
+            <field ref="base.er" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ESTONIA">
+            <field ref="base.ee" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ETHIOPIA">
+            <field ref="base.et" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_FALKLANDISLANDS">
+            <field ref="base.fk" name="to_country"></field>
+            <field name="shipping_days">6</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_FAROEISLANDS">
+            <field ref="base.fo" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_FIJI">
+            <field ref="base.fj" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_FINLAND">
+            <field ref="base.fi" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_FRANCE">
+            <field ref="base.fr" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_FRENCHGUYANA">
+            <field ref="base.gf" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GABON">
+            <field ref="base.ga" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GAMBIA">
+            <field ref="base.gm" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GEORGIA">
+            <field ref="base.ge" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GERMANY">
+            <field ref="base.de" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GHANA">
+            <field ref="base.gh" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GIBRALTAR">
+            <field ref="base.gi" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GREECE">
+            <field ref="base.gr" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GREENLAND">
+            <field ref="base.gl" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GRENADA">
+            <field ref="base.gd" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GUADELOUPE">
+            <field ref="base.gp" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GUAM">
+            <field ref="base.gu" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GUATEMALA">
+            <field ref="base.gt" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GUERNSEY">
+            <field ref="base.gg" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GUINEAREPUBLIC">
+            <field ref="base.gn" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GUINEABISSAU">
+            <field ref="base.gw" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GUINEAEQUATORIAL">
+            <field ref="base.gq" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_GUYANABRITISH">
+            <field ref="base.gy" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_HAITI">
+            <field ref="base.ht" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_HONDURAS">
+            <field ref="base.hn" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_HONGKONG">
+            <field ref="base.hk" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_HUNGARY">
+            <field ref="base.hu" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ICELAND">
+            <field ref="base.is" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_INDIA">
+            <field ref="base.in" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_INDONESIA">
+            <field ref="base.id" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_IRANISLAMICREPUBLICOF">
+            <field ref="base.ir" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_IRAQ">
+            <field ref="base.iq" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_IRELANDREPUBLICOF">
+            <field ref="base.ie" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ISRAEL">
+            <field ref="base.il" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ITALY">
+            <field ref="base.it" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_JAMAICA">
+            <field ref="base.jm" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_JAPAN">
+            <field ref="base.jp" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_JERSEY">
+            <field ref="base.je" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_JORDAN">
+            <field ref="base.jo" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_KAZAKHSTAN">
+            <field ref="base.kz" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_KENYA">
+            <field ref="base.ke" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_KIRIBATI">
+            <field ref="base.ki" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_KOREAREPUBLICOF">
+            <field ref="base.kr" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_KOREATHEDPROF">
+            <field ref="base.kp" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_KUWAIT">
+            <field ref="base.kw" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_KYRGYZSTAN">
+            <field ref="base.kg" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LAOPEOPLESDEMOCRATICREPUBLIC">
+            <field ref="base.la" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LATVIA">
+            <field ref="base.lv" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LEBANON">
+            <field ref="base.lb" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LESOTHO">
+            <field ref="base.ls" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LIBERIA">
+            <field ref="base.lr" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LIBYA">
+            <field ref="base.ly" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LIECHTENSTEIN">
+            <field ref="base.li" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LITHUANIA">
+            <field ref="base.lt" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_LUXEMBOURG">
+            <field ref="base.lu" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MACAU">
+            <field ref="base.mo" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MACEDONIAREPUBLICOF">
+            <field ref="base.mk" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MADAGASCAR">
+            <field ref="base.mg" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MALAWI">
+            <field ref="base.mw" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MALAYSIA">
+            <field ref="base.my" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MALDIVES">
+            <field ref="base.mv" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MALI">
+            <field ref="base.ml" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MALTA">
+            <field ref="base.mt" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MARSHALLISLANDS">
+            <field ref="base.mh" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MARTINIQUE">
+            <field ref="base.mq" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MAURITANIA">
+            <field ref="base.mr" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MAURITIUS">
+            <field ref="base.mu" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MAYOTTE">
+            <field ref="base.yt" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MEXICO">
+            <field ref="base.mx" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MICRONESIAFEDERATEDSTATESOF">
+            <field ref="base.fm" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MOLDOVAREPUBLICOF">
+            <field ref="base.md" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MONACO">
+            <field ref="base.mc" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MONGOLIA">
+            <field ref="base.mn" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MONTENEGROREPUBLICOF">
+            <field ref="base.me" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MONTSERRAT">
+            <field ref="base.ms" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MOROCCO">
+            <field ref="base.ma" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MOZAMBIQUE">
+            <field ref="base.mz" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_MYANMAR">
+            <field ref="base.mm" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NAMIBIA">
+            <field ref="base.na" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NAURUREPUBLICOF">
+            <field ref="base.nr" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NEPAL">
+            <field ref="base.np" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NETHERLANDSANTILLES">
+            <field ref="base.an" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NETHERLANDSTHE">
+            <field ref="base.nl" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NEWCALEDONIA">
+            <field ref="base.nc" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NEWZEALAND">
+            <field ref="base.nz" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NICARAGUA">
+            <field ref="base.ni" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NIGER">
+            <field ref="base.ne" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NIGERIA">
+            <field ref="base.ng" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NIUE">
+            <field ref="base.nu" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_NORWAY">
+            <field ref="base.no" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_OMAN">
+            <field ref="base.om" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PAKISTAN">
+            <field ref="base.pk" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PALAU">
+            <field ref="base.pw" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PANAMA">
+            <field ref="base.pa" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PAPUANEWGUINEA">
+            <field ref="base.pg" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PARAGUAY">
+            <field ref="base.py" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PERU">
+            <field ref="base.pe" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PHILIPPINESTHE">
+            <field ref="base.ph" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_POLAND">
+            <field ref="base.pl" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PORTUGAL">
+            <field ref="base.pt" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_PUERTORICO">
+            <field ref="base.pr" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_QATAR">
+            <field ref="base.qa" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_REUNIONISLANDOF">
+            <field ref="base.re" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ROMANIA">
+            <field ref="base.ro" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_RUSSIANFEDERATIONTHE">
+            <field ref="base.ru" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_RWANDA">
+            <field ref="base.rw" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SAIPAN">
+            <field ref="base.mp" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SAMOA">
+            <field ref="base.ws" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SANMARINO">
+            <field ref="base.sm" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SAOTOMEANDPRINCIPE">
+            <field ref="base.st" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SAUDIARABIA">
+            <field ref="base.sa" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SENEGAL">
+            <field ref="base.sn" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SERBIAREPUBLICOF">
+            <field ref="base.rs" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SEYCHELLES">
+            <field ref="base.sc" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SIERRALEONE">
+            <field ref="base.sl" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SINGAPORE">
+            <field ref="base.sg" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SLOVAKIA">
+            <field ref="base.sk" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SLOVENIA">
+            <field ref="base.si" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SOLOMONISLANDS">
+            <field ref="base.sb" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SOMALIA">
+            <field ref="base.so" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SOUTHAFRICA">
+            <field ref="base.za" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SOUTHSUDAN">
+            <field ref="base.ss" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SPAIN">
+            <field ref="base.es" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SRILANKA">
+            <field ref="base.lk" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_STKITTS">
+            <field ref="base.kn" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_STLUCIA">
+            <field ref="base.lc" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_STVINCENT">
+            <field ref="base.vc" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SUDAN">
+            <field ref="base.sd" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SURINAME">
+            <field ref="base.sr" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SWAZILAND">
+            <field ref="base.sz" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SWEDEN">
+            <field ref="base.se" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SWITZERLAND">
+            <field ref="base.ch" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_SYRIA">
+            <field ref="base.sy" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TAHITI">
+            <field ref="base.pf" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TAIWAN">
+            <field ref="base.tw" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TAJIKISTAN">
+            <field ref="base.tj" name="to_country"></field>
+            <field name="shipping_days">4</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TANZANIA">
+            <field ref="base.tz" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_THAILAND">
+            <field ref="base.th" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TOGO">
+            <field ref="base.tg" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TONGA">
+            <field ref="base.to" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TRINIDADANDTOBAGO">
+            <field ref="base.tt" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TUNISIA">
+            <field ref="base.tn" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TURKEY">
+            <field ref="base.tr" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TURKSANDCAICOSISLANDS">
+            <field ref="base.tc" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_TUVALU">
+            <field ref="base.tv" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_UGANDA">
+            <field ref="base.ug" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_UKRAINE">
+            <field ref="base.ua" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_UNITEDARABEMIRATES">
+            <field ref="base.ae" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_UNITEDKINGDOM">
+            <field ref="base.uk" name="to_country"></field>
+            <field name="shipping_days">1</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_UNITEDSTATESOFAMERICA">
+            <field ref="base.us" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_URUGUAY">
+            <field ref="base.uy" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_UZBEKISTAN">
+            <field ref="base.uz" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_VANUATU">
+            <field ref="base.vu" name="to_country"></field>
+            <field name="shipping_days">5</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_VENEZUELA">
+            <field ref="base.ve" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_VIETNAM">
+            <field ref="base.vn" name="to_country"></field>
+            <field name="shipping_days">2</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_VIRGINISLANDSBRITISH">
+            <field ref="base.vg" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_VIRGINISLANDSUS">
+            <field ref="base.vi" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_YEMENREPUBLICOF">
+            <field ref="base.ye" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ZAMBIA">
+            <field ref="base.zm" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+        <record model="elmatica_purchase_flow.shipping_days" id="shipping_ZIMBABWE">
+            <field ref="base.zw" name="to_country"></field>
+            <field name="shipping_days">3</field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="picking_mat_label_button" model="ir.ui.view">
+            <field name="name">stock.picking.mat.label.button</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="super_order_id" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

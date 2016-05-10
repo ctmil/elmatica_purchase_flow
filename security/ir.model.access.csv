@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_elmatica_purchase_flow_shipping_days,access_elmatica_purchase_flow_shipping_days,model_elmatica_purchase_flow_shipping_days,,1,0,0,0

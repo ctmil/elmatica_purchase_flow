@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="delivery_mismatch_search" model="ir.ui.view">
+            <field name="name">sale.order.mismatch.search</field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <search string="Search Sale Order">
+                    <field name="partner_id"/>
+                    <field name="state" invisible="1" />
+                    <field name="selected_supplier"/>
+                    <field name="required_shipping_date" />
+                    <field name="purchase_delivery_date" />
+<!--                    <filter name="hide_cancelled" string="Hide cancelled lines" domain="[('state', '!=', 'cancel')]"/> -->
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_supplier" string="Supplier" icon="terp-partner" domain="[]" context="{'group_by' : 'selected_supplier'}" />
+                        <!-- <filter name="groupby_product" string="Product" icon="terp-accessories-archiver" domain="[]" context="{'group_by' : 'product_id'}" /> -->
+                        <filter string="Status" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by' : 'state'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="sale_order_mismatch_tree" model="ir.ui.view">
+            <field name="name">sale.order.mismatch.tree</field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <tree string="Sale Orders" create="false">
+                    <field name="state" invisible="1" />
+                    <field name="name"/>
+                    <field name="partner_id" string="Customer" />
+                    <field name="selected_supplier" string="Supplier" />
+                    <field name="required_shipping_date" />
+                    <field name="purchase_delivery_date" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="delivery_mismatch_form_action2" model="ir.actions.act_window">
+            <field name="name">Mismatch Order Dates</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="domain">[ ('required_shipping_date_not_met','=',True) ]</field>
+            <field name="context">{}</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="delivery_mismatch_search"/>
+            <field name="help" type="html">
+              <p>
+                See here you must.
+              </p>
+            </field>
+        </record>
+
+
+        <record id="purchase_line_form_action_tree2" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="sale_order_mismatch_tree"/>
+            <field name="act_window_id" ref="delivery_mismatch_form_action2"/>
+        </record>
+        <!--
+        <record id="purchase_line_form_action_form2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="purchase_order_line_form2"/>
+            <field name="act_window_id" ref="purchase_line_undelivered_form_action2"/>
+        </record> -->
+        <menuitem
+            action="delivery_mismatch_form_action2"
+            id="menu_purchase_line_mismatch"
+            parent="purchase.menu_procurement_management"
+            name="Delivery mismatch"
+            sequence="75"/>
+
+
+        </data>
+    </openerp>
