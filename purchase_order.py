@@ -95,7 +95,7 @@ class purchase_order(models.Model):
         for order in self:
             deviation, warning = order.get_deviation_status()
             order.deviating_shipping_date = bool(deviation)
-    """
+    
     def get_deviation_status(self):
         self.ensure_one()
         required_date = fields.Date.from_string(self.minimum_planned_date)
@@ -117,7 +117,7 @@ class purchase_order(models.Model):
         return deviation, warning
 
         # MAY BE DELETED SOON
-    """
+    
 
     @api.multi
     def write(self, vals):
@@ -260,6 +260,10 @@ class purchase_order(models.Model):
 
     @api.onchange('dest_address_id', 'sale_id', 'shipping_days',
                   'hub_days', 'buffer_days', 'customer_partner_days_add', 'requested_delivery')
+
+    def calculate_shipping_date(self):
+	return 0,0
+
     @api.multi
     def onchange_destination(self):
         self.ensure_one()
