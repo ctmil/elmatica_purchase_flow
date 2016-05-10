@@ -98,6 +98,8 @@ class purchase_order(models.Model):
     
     def get_deviation_status(self):
         self.ensure_one()
+        if not self.minimum_planned_date or not self.confirmed_date:
+            return None, None
         required_date = fields.Date.from_string(self.minimum_planned_date)
         confirmed_date = fields.Date.from_string(self.confirmed_date)
 
@@ -116,8 +118,6 @@ class purchase_order(models.Model):
 
         return deviation, warning
 
-        # MAY BE DELETED SOON
-    
 
     @api.multi
     def write(self, vals):
