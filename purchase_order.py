@@ -543,9 +543,12 @@ class purchase_order(models.Model):
     customer_contact = fields.Many2one('res.partner', compute='_calc_customer_contact')
     partner_days_early = fields.Integer(related='customer_id.partner_delivery_early', readonly=True, help='The number of days before the expected date the customer will accept.')
     partner_days_delay = fields.Integer(related='customer_id.partner_delivery_late', readonly=True, help='The number of days after the expected date the customer will accept')
-    hub_days = fields.Integer('Hub days', compute='_calc_hub_days', help='Hub days: \n'
+    hub_days = fields.Integer('Hub days',default=0, help='Hub days: \n'
                                                                          'If the delivery method of the supplier is EXW (ExWorks), hub days is 0.\n'
                                                                          'Otherwise it is set to the additional days parameter of the supplier.')
+    #hub_days = fields.Integer('Hub days', compute='_calc_hub_days', help='Hub days: \n'
+    #                                                                     'If the delivery method of the supplier is EXW (ExWorks), hub days is 0.\n'
+    #                                                                     'Otherwise it is set to the additional days parameter of the supplier.')
     computed_buffer_days = fields.Integer('Computed buffer days', compute='_calc_comp_buffer_days')
     buffer_days = fields.Integer('Buffer days', required=True, readonly=False, default=0, help='Buffer days. A number of days to be added to the date calculation')
     #supplier_partner_days_add = fields.Integer(related='')
