@@ -359,10 +359,10 @@ class purchase_order(models.Model):
     def _calc_hub_days(self):
         for order in self:
             supplier = order.sudo().partner_id
-            if supplier.delivery_method=='exw': # ExWorks
+            if supplier.sudo().delivery_method=='exw': # ExWorks
                 order.hub_days = 0
             else:                            
-                order.hub_days = supplier.partner_add_days
+                order.hub_days = supplier.sudo().partner_add_days
    
     
     @api.multi
