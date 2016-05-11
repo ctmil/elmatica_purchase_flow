@@ -24,13 +24,13 @@
 	                    <button name="force_calculate_shipping_date" type="object" string="Calculate"/>
 		    </group>
                     <!-- field name="hub_days"/ -->  
-                    <field name="computed_buffer_days" />
-                    <field name="buffer_days"/>
-                    <field name="delivery_date" />
-                    <field name="customer_partner_days_add"/>
-                    <field name="shipping_days"/> 
-                    <field name="requested_delivery"/> 
-                    <field name="deviating_shipping_date" invisible="1" />
+                    <field name="computed_buffer_days" groups="purchase.group_purchase_user"/>
+                    <field name="buffer_days" groups="purchase.group_purchase_user"/>
+                    <field name="delivery_date" groups="purchase.group_purchase_user"/>
+                    <field name="customer_partner_days_add" groups="purchase.group_purchase_user"/>
+                    <field name="shipping_days" groups="purchase.group_purchase_user"/> 
+                    <field name="requested_delivery" groups="purchase.group_purchase_user"/> 
+                    <field name="deviating_shipping_date" invisible="1"  groups="purchase.group_purchase_user"/>
                     <field name="updated_delivery" attrs="{'invisible' : [('deviating_shipping_date', '=', False)]}" />
                 </field>
                 
