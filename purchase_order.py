@@ -254,7 +254,9 @@ class purchase_order(models.Model):
     def _calc_shipping_days(self):
         for order in self:
             order.sudo().recalc_shipping_days()
-            req_shipping_date, delivery_date = order.sudo().calculate_shipping_date()
+	    # import pdb;pdb.set_trace()
+            # req_shipping_date, delivery_date = order.sudo().calculate_shipping_date()
+            delivery_date = order.sudo().calculate_shipping_date()
             order.updated_delivery = delivery_date
     
 
@@ -357,7 +359,7 @@ class purchase_order(models.Model):
     @api.multi
     def _calc_hub_days(self):
         for order in self:
-            supplier = order.partner_id
+            supplier = order.sudo().partner_id
             if supplier.delivery_method=='exw': # ExWorks
                 order.hub_days = 0
             else:                            
