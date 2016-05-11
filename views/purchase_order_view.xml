@@ -15,7 +15,7 @@
                     <group colspan="4">
                         <button name="action_confirm_order" type="object" string="Confirm to Customer"/>
                     </group>
-                    <field name="sale_id" />
+                    <!-- field name="sale_id" / -->
                     <!--  field name="super_order_id" / -->
                 </field>
                 <field name="minimum_planned_date" position="after">
@@ -31,7 +31,7 @@
                     <field name="shipping_days"/> 
                     <field name="requested_delivery"/> 
                     <field name="deviating_shipping_date" invisible="1" />
-	                    <field name="updated_delivery" attrs="{'invisible' : [('deviating_shipping_date', '=', False)]}" />
+                    <field name="updated_delivery" attrs="{'invisible' : [('deviating_shipping_date', '=', False)]}" />
                 </field>
                 
                 <field name="date_approve" position="after">
