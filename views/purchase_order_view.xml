@@ -23,7 +23,7 @@
 		    <group>
 	                    <button name="force_calculate_shipping_date" type="object" string="Calculate"/>
 		    </group>
-                    <field name="hub_days"/>  
+                    <!-- field name="hub_days"/ -->  
                     <field name="computed_buffer_days" />
                     <field name="buffer_days"/>
                     <field name="delivery_date" />
