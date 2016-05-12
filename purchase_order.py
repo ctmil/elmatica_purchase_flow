@@ -52,7 +52,6 @@ class purchase_order_line(models.Model):
 class purchase_order(models.Model):
     _inherit = 'purchase.order'
 
-    """ can be removed soon
     @api.multi
     def action_confirm_order(self):
         self.ensure_one()
@@ -72,7 +71,6 @@ class purchase_order(models.Model):
         t2 = et.browse([template_id])
         print "T2", t2
         mail_id = t2.send_mail(template_id, self.sale_id.id, raise_exception=True)
-    """
 
     """
     @api.onchange('confirmed_date')
@@ -356,17 +354,6 @@ class purchase_order(models.Model):
 
     
     @api.multi
-    def _calc_hub_days(self):
-        for order in self:
-            order.hub_days = 0
-            #supplier = order.sudo().partner_id
-            #if supplier.sudo().delivery_method=='exw': # ExWorks
-            #    order.hub_days = 0
-            #else:                            
-            #    order.hub_days = supplier.sudo().partner_add_days
-   
-    
-    @api.multi
     def _calc_add_days(self):
         for order in self:
             if order.customer_id and order.sudo().customer_id.partner_add_days:
@@ -544,9 +531,6 @@ class purchase_order(models.Model):
     partner_days_early = fields.Integer(related='customer_id.partner_delivery_early', readonly=True, help='The number of days before the expected date the customer will accept.')
     partner_days_delay = fields.Integer(related='customer_id.partner_delivery_late', readonly=True, help='The number of days after the expected date the customer will accept')
     hub_days = fields.Integer(string='Gustavo hub days')
-    #hub_days = fields.Integer('Hub days', compute='_calc_hub_days', help='Hub days: \n'
-    #                                                                     'If the delivery method of the supplier is EXW (ExWorks), hub days is 0.\n'
-    #                                                                     'Otherwise it is set to the additional days parameter of the supplier.')
     computed_buffer_days = fields.Integer('Computed buffer days', compute='_calc_comp_buffer_days')
     buffer_days = fields.Integer('Buffer days', required=True, readonly=False, default=0, help='Buffer days. A number of days to be added to the date calculation')
     #supplier_partner_days_add = fields.Integer(related='')
