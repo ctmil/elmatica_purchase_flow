@@ -100,7 +100,7 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="purchase_order_tree_confirmed_date">
+        <!-- record model="ir.ui.view" id="purchase_order_tree_confirmed_date">
             <field name="name">purchase.order.list.confirmed_date</field>
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_tree" />
@@ -109,6 +109,7 @@
                     <field name="confirmed_date" string="Confirmed date" />
                 </field>
             </field>
-        </record>
+        </record -->
+
     </data>
 </openerp>
