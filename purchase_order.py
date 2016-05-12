@@ -55,7 +55,8 @@ class purchase_order(models.Model):
     @api.multi
     def action_confirm_order(self):
         self.ensure_one()
-        req_shipping_date, delivery_date = self.calculate_shipping_date()
+        # req_shipping_date, delivery_date = self.calculate_shipping_date()
+        delivery_date = self.calculate_shipping_date()
         self.updated_delivery = delivery_date
         action_dict = self.sale_id.action_quotation_send()
         print "ACTION DICT", action_dict
