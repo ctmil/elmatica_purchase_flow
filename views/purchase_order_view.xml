@@ -11,6 +11,7 @@
                     <!-- <field name="deviating_shipping_date" invisible="1" /> -->
                 </field>
                 <field name="date_order" position="after">
+                    <field name="requested_delivery" groups="purchase.group_purchase_user"/> 
                     <field name="confirmed_date"/>
                     <group colspan="4">
                         <button name="action_confirm_order" type="object" string="Confirm to Customer"/>
@@ -29,7 +30,6 @@
                     <field name="delivery_date" groups="purchase.group_purchase_user"/>
                     <field name="customer_partner_days_add" groups="purchase.group_purchase_user"/>
                     <field name="shipping_days" groups="purchase.group_purchase_user"/> 
-                    <field name="requested_delivery" groups="purchase.group_purchase_user"/> 
                     <field name="deviating_shipping_date" invisible="1"  groups="purchase.group_purchase_user"/>
                     <field name="updated_delivery" attrs="{'invisible' : [('deviating_shipping_date', '=', False)]}" />
                 </field>
