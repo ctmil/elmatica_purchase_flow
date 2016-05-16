@@ -59,19 +59,18 @@ class purchase_order(models.Model):
         delivery_date = self.calculate_shipping_date()
         self.updated_delivery = delivery_date
         action_dict = self.sale_id.action_quotation_send()
-        print "ACTION DICT", action_dict
+        #print "ACTION DICT", action_dict
         return action_dict
-        return self.sale_id.action_quotation_send()
-        et = self.env['email.template']
-        try:
-            template_id = self.env['ir.model.data'].get_object_reference('sale', 'email_template_edi_sale')[1]
-        except ValueError:
-            template_id = False
-
-        print "SENDING THE MAIL!!", template_id
-        t2 = et.browse([template_id])
-        print "T2", t2
-        mail_id = t2.send_mail(template_id, self.sale_id.id, raise_exception=True)
+        #return self.sale_id.action_quotation_send()
+        #et = self.env['email.template']
+        #try:
+        #    template_id = self.env['ir.model.data'].get_object_reference('sale', 'email_template_edi_sale')[1]
+        #except ValueError:
+        #    template_id = False
+        #print "SENDING THE MAIL!!", template_id
+        #t2 = et.browse([template_id])
+        #print "T2", t2
+        #mail_id = t2.send_mail(template_id, self.sale_id.id, raise_exception=True)
 
     """
     @api.onchange('confirmed_date')
@@ -281,6 +280,7 @@ class purchase_order(models.Model):
         _logger.info("%s Calculate shipping date %s", self, [x.sale_order for x in self.order_line])
         sales = set([x.sale_order for x in self.order_line if x.sale_order ])
 
+	import pdb;pdb.set_trace()
         if not sales:
             self.shipping_calc_status = _('Unable to calculate shipping date since sales order is not set. PO=%s' % self.name)
             return None
@@ -456,8 +456,7 @@ class purchase_order(models.Model):
             #if order.tooling_po:
             #    continue
 
-            po_products = [x.product_id for x in order.order_line]
-
+            #po_products = [x.product_id for x in order.order_line]
             #pcb_superline = None
             #for superline in super_order.order_line:
             #    if superline.order_id == order.sale_id and superline.product_id in po_products:
@@ -470,8 +469,10 @@ class purchase_order(models.Model):
             #    continue
             #buff_d = pcb_superline.out_delay and pcb_superline.out_delay - pcb_superline.delay or 0
 	    # gustavo
-	    buff_d = 0
-            order.computed_buffer_days = buff_d
+	    if order.sale_id:
+		order.computed_buffer_days = order.sale_id.buffer_days
+	    else:
+		order.computed_buffer_days = 0
     
     """
     @api.multi
