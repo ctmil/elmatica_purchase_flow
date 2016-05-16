@@ -532,7 +532,7 @@ class purchase_order(models.Model):
     partner_days_early = fields.Integer(related='customer_id.partner_delivery_early', readonly=True, help='The number of days before the expected date the customer will accept.')
     partner_days_delay = fields.Integer(related='customer_id.partner_delivery_late', readonly=True, help='The number of days after the expected date the customer will accept')
     hub_days = fields.Integer(string='Gustavo hub days')
-    computed_buffer_days = fields.Integer('Computed buffer days', compute='_calc_comp_buffer_days')
+    computed_buffer_days = fields.Integer('Original buffer days', compute='_calc_comp_buffer_days')
     buffer_days = fields.Integer('Buffer days', required=True, readonly=False, default=0, help='Buffer days. A number of days to be added to the date calculation')
     #supplier_partner_days_add = fields.Integer(related='')
     customer_partner_days_add = fields.Integer('Additional days', compute='_calc_add_days', help='The number of additional days for the customer.')
