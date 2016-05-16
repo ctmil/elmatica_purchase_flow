@@ -116,7 +116,7 @@ class purchase_order(models.Model):
 
         return deviation, warning
 
-
+    """
     @api.multi
     def write(self, vals):
         info_product = self.get_info_product()
@@ -156,27 +156,6 @@ class purchase_order(models.Model):
                         _logger.info('Adding infoline to PO %s', self)
 
         return super(purchase_order, self).write(vals)
-
-    """
-    @api.multi
-    def write(self, vals):
-        # If we are in divergence
-        for order in self:
-            deviation, warning = order.get_deviation_status()
-            if deviation:
-                _logger.info('Writing values %s' % vals)
-                _logger.info('Order %s deviation %s updated delivery %s or %s', self.name, order.updated_delivery, vals.get('actual_delivery', 'NOTSET'))
-                # We must either have updated_delivery or write it
-                if order.updated_delivery or vals.get('updated_delivery', False):
-                    continue
-                else:
-                    req_shipping_date, delivery_date = order.sudo().calculate_shipping_date()
-                    order.updated_delivery = delivery_date
-                    if not delivery_date:
-                        raise exceptions.Warning(_('We must have an actual delivery date for %s' % self.name))
-
-        result = super(purchase_order, self).write(vals)
-        return result
     """
 
     def _prepare_invoice(self, cr, uid, order, line_ids, context=None):
@@ -248,18 +227,20 @@ class purchase_order(models.Model):
 
     
     @api.multi
-    @api.depends('sale_id')
+    #@api.depends('sale_id')
     def _calc_shipping_days(self):
         for order in self:
-            order.sudo().recalc_shipping_days()
-            # req_shipping_date, delivery_date = order.sudo().calculate_shipping_date()
-            delivery_date = order.sudo().calculate_shipping_date()
-            order.updated_delivery = delivery_date
+	    if not order.confirmed_date:
+	            order.sudo().recalc_shipping_days()
+        	    # req_shipping_date, delivery_date = order.sudo().calculate_shipping_date()
+		    delivery_date = order.sudo().calculate_shipping_date()
+        	    order.updated_delivery = delivery_date
     
 
+    #@api.onchange('dest_address_id', 'sale_id', 'shipping_days',
+    #              'hub_days', 'buffer_days', 'customer_partner_days_add', 'requested_delivery')
     @api.onchange('dest_address_id', 'sale_id', 'shipping_days',
-                  'hub_days', 'buffer_days', 'customer_partner_days_add', 'requested_delivery')
-
+                  'hub_days', 'buffer_days', 'customer_partner_days_add')
     def calculate_shipping_date(self):
         """
         requested_delivery -> When goods should be at the customer site
@@ -280,7 +261,6 @@ class purchase_order(models.Model):
         _logger.info("%s Calculate shipping date %s", self, [x.sale_order for x in self.order_line])
         sales = set([x.sale_order for x in self.order_line if x.sale_order ])
 
-	import pdb;pdb.set_trace()
         if not sales:
             self.shipping_calc_status = _('Unable to calculate shipping date since sales order is not set. PO=%s' % self.name)
             return None
@@ -297,8 +277,7 @@ class purchase_order(models.Model):
         else: # The length is 1
             sale = sales.pop()
 
-        self.requested_delivery = sale.requested_delivery_date
-        print "CALCULATE_SHIPPING_DATE", self, sale
+        # self.requested_delivery = sale.requested_delivery_date
         #required_shipping_date = fields.Date.from_string(sales.pop().requested_delivery_date) - datetime.timedelta(days=10)
         if not sale.requested_delivery_date:
             _logger.info('Unable to calculate shipping date since SO does not have requested delivery date. %s', sale.name)
@@ -453,22 +432,6 @@ class purchase_order(models.Model):
         Computed buffer days is the difference between in-leadtime and out-leadtime of the SSO...
         """
         for order in self:
-            #if order.tooling_po:
-            #    continue
-
-            #po_products = [x.product_id for x in order.order_line]
-            #pcb_superline = None
-            #for superline in super_order.order_line:
-            #    if superline.order_id == order.sale_id and superline.product_id in po_products:
-            #        pcb_superline = superline
-            #        assert superline.order_id == order.sale_id, 'PO %s superline %s has order_id %s but we have sale_id %s' % (order.name, superline, superline.order_id, order.sale_id)
-            #       break
-
-            #if not pcb_superline:
-            #    _logger.info('No PCB SSO line found for po %s so %s product %s', order.name, order.sale_id, po_products)
-            #    continue
-            #buff_d = pcb_superline.out_delay and pcb_superline.out_delay - pcb_superline.delay or 0
-	    # gustavo
 	    if order.sale_id:
 		order.computed_buffer_days = order.sale_id.buffer_days
 	    else:
@@ -518,10 +481,10 @@ class purchase_order(models.Model):
         _logger.info('Retrieved info product %d', info_product)
         return info_product
 
-    order_line = fields.One2many('purchase.order.line', 'order_id', 'Order Lines',
-                                      states={'approved':[('readonly',False)], # hm
-                                              'done':[('readonly',True)]},
-                                      copy=True)
+    #order_line = fields.One2many('purchase.order.line', 'order_id', 'Order Lines',
+    #                                  states={'approved':[('readonly',False)], # hm
+    #                                          'done':[('readonly',True)]},
+    #                                  copy=True)
 
     confirmed_date = fields.Date('Confirmed shipping date')
     super_order_id = fields.Many2one('super.sales.order', string='Super Order Reference', compute='_calc_super_order_id')
