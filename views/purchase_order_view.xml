@@ -41,15 +41,14 @@
                 <field name="minimum_planned_date" position="attributes">
                     <attribute name="string">Expected Shipping Date</attribute>
                 </field>
-                <field name="picking_type_id" position="after">
+                <!-- field name="picking_type_id" position="after">
                     <field name="consider_wkng_gerber" invisible="1" />
                     <field name="tooling_order" invisible="1" />
                     <field name="wkng_gerber_field" attrs="{'invisible': [('consider_wkng_gerber','=',False)]}"/>
-                    <!-- field name="matching_product_po" / --> <!-- attrs="{'invisible': [('tooling_po','=',False)]}" /> -->
-                </field>
-                <xpath expr="//button[@id='draft_confirm']" position="before">
+                </field -->
+                <!-- xpath expr="//button[@id='draft_confirm']" position="before">
                         <field name="wkng_gerber" invisible="1"/>
-                    </xpath>
+                    </xpath -->
                 <!--
                 <xpath expr="//button[@id='draft_confirm']" position="replace">
                         <button name="purchase_confirm" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('wkng_gerber','=',False)]}" string="Confirm Order" id="draft_confirm"/>
@@ -58,14 +57,14 @@
                         <button name="purchase_confirm" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('wkng_gerber','=',False)]}" string="Confirm Order" class="oe_highlight" id="bid_confirm"/>
                 </xpath>
                 -->
-                <xpath expr="//button[@id='draft_confirm']" position="attributes">
+                <!-- xpath expr="//button[@id='draft_confirm']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', '!=', 'draft'), ('wkng_gerber','=',False)] }</attribute>
                     <attribute name="states">()</attribute>
                 </xpath>
                 <xpath expr="//button[@id='bid_confirm']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', '!=', 'bid'), ('wkng_gerber','=',False)] }</attribute>
                     <attribute name="states">()</attribute>
-                </xpath>
+                </xpath -->
             </field>
         </record>
 

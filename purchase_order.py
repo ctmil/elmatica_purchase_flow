@@ -362,20 +362,20 @@ class purchase_order(models.Model):
             else:
                 order.matching_product_po = None
 
-    @api.multi
-    @api.depends('order_line', 'order_line.name')
-    def _calc_tooling_order(self):
-        for order in self:
-            _logger.info('Order %s tooling_order? %s', order.name, order.tooling_order)
-            order.tooling_order = order.is_tooling()
-            _logger.info('Order %s tooling_order? %s', order.name, order.tooling_order)
+    #@api.multi
+    #@api.depends('order_line', 'order_line.name')
+    #def _calc_tooling_order(self):
+    #    for order in self:
+    #        _logger.info('Order %s tooling_order? %s', order.name, order.tooling_order)
+    #        order.tooling_order = order.is_tooling()
+    #        _logger.info('Order %s tooling_order? %s', order.name, order.tooling_order)
 
-    def is_tooling(self):
-        tooling_match = {True: 0, False: 0}
-        self.ensure_one()
-        matches = [x for x in self.order_line if x.name.find('[TOOLING]')==0 ]
-        #_logger.info('is_tooling %s %s', self.name, matches)
-        return len(matches)>0
+    #def is_tooling(self):
+    #    tooling_match = {True: 0, False: 0}
+    #    self.ensure_one()
+    #    matches = [x for x in self.order_line if x.name.find('[TOOLING]')==0 ]
+    #    #_logger.info('is_tooling %s %s', self.name, matches)
+    #    return len(matches)>0
 
     @api.depends('sale_id')
     @api.multi
@@ -386,16 +386,16 @@ class purchase_order(models.Model):
 
             order.customer_contact = order.sudo().sale_id.customer_contact
 
-    @api.depends('wkng_gerber_field', 'customer_id.wkng_gerber')
-    @api.multi
-    def _calc_wkng_gerber(self):
-        for order in self:
-            if order.is_tooling():
-                order.wkng_gerber = True
-            else:
-                #n consider_gerber = order.sudo().customer_id.wkng_gerber or order.sudo().sale_id.super_order_id.wkng_gerber
-                consider_gerber = order.sudo().customer_id.wkng_gerber
-                order.wkng_gerber = not consider_gerber and True or order.wkng_gerber_field
+    #@api.depends('wkng_gerber_field', 'customer_id.wkng_gerber')
+    #@api.multi
+    #def _calc_wkng_gerber(self):
+    #    for order in self:
+    #        if order.is_tooling():
+    #            order.wkng_gerber = True
+    #        else:
+    #            #n consider_gerber = order.sudo().customer_id.wkng_gerber or order.sudo().sale_id.super_order_id.wkng_gerber
+    #            consider_gerber = order.sudo().customer_id.wkng_gerber
+    #            order.wkng_gerber = not consider_gerber and True or order.wkng_gerber_field
 
 
     @api.depends('sale_id')
@@ -408,22 +408,22 @@ class purchase_order(models.Model):
 
             order.customer_ref = order.sudo().sale_id.client_order_ref
 
-    @api.depends('sale_id', 'partner_id')
-    @api.multi
-    def _calc_consider_wkng_gerber(self):
-        for order in self:
-            if not order.customer_id:
-                order.consider_wkng_gerber = False
-                continue
-            customer_wkng_gerber = order.customer_id.wkng_gerber
-            # _logger.info('%s Considering %s %s %s %s' % (order.name, order.is_tooling(), order.customer_id, customer_wkng_gerber, order.sudo().sale_id.super_order_id.wkng_gerber))
-            if order.is_tooling():
-                order.consider_wkng_gerber = False
-            # elif customer_wkng_gerber or order.sudo().sale_id.wkng_gerber:
-            elif customer_wkng_gerber:
-                order.consider_wkng_gerber = True
-            else:
-                order.consider_wkng_gerber = False
+    #@api.depends('sale_id', 'partner_id')
+    #@api.multi
+    #def _calc_consider_wkng_gerber(self):
+    #    for order in self:
+    #        if not order.customer_id:
+    #            order.consider_wkng_gerber = False
+    #            continue
+    #        customer_wkng_gerber = order.customer_id.wkng_gerber
+    #        # _logger.info('%s Considering %s %s %s %s' % (order.name, order.is_tooling(), order.customer_id, customer_wkng_gerber, order.sudo().sale_id.super_order_id.wkng_gerber))
+    #        if order.is_tooling():
+    #            order.consider_wkng_gerber = False
+    #        # elif customer_wkng_gerber or order.sudo().sale_id.wkng_gerber:
+    #        elif customer_wkng_gerber:
+    #            order.consider_wkng_gerber = True
+    #        else:
+    #            order.consider_wkng_gerber = False
 
     
     @api.multi
@@ -449,6 +449,7 @@ class purchase_order(models.Model):
 
     @api.multi
     def _get_delivery_date(self):
+	import pdb;pdb.set_trace()
         info_product = self.get_info_product()
 
         for order in self:
@@ -503,13 +504,14 @@ class purchase_order(models.Model):
     shipping_days = fields.Integer('Days shipping', help='Number of days in shipping.', compute='_calc_shipping_days')
     requested_delivery = fields.Date('Requested delivery', related='sale_id.requested_delivery_date', readonly=True, help='The requested delivery date')
     updated_delivery = fields.Date('Updated delivery date', readonly=True)
-    delivery_date = fields.Date('Delivery date', compute='_get_delivery_date')
+    # delivery_date = fields.Date('Delivery date', compute='_get_delivery_date')
+    delivery_date = fields.Date('Delivery date')
     deviating_shipping_date = fields.Boolean('Deviating shipping date', help='Confirmed shipping date is too late or too early', compute='_calc_deviating_shipping_date')
     #expected_delivery = fields.Date('Expected delivery date', compute='_calc_expected_delivery')
     shipping_calc_status = fields.Char('Status', readonly=True)
-    wkng_gerber = fields.Boolean('Wkng Gerber', compute='_calc_wkng_gerber')
-    consider_wkng_gerber = fields.Boolean('Partner Wkng Gerber', compute='_calc_consider_wkng_gerber', invisible=True)
-    wkng_gerber_field = fields.Boolean('Wkng Gerber Approved', default=False, readonly=True, help='The Gerber has been approved',
-            states={'draft': [('readonly', False)], 'sent': [('readonly',False)], 'bid': [('readonly',False)]})
+    #wkng_gerber = fields.Boolean('Wkng Gerber', compute='_calc_wkng_gerber')
+    #consider_wkng_gerber = fields.Boolean('Partner Wkng Gerber', compute='_calc_consider_wkng_gerber', invisible=True)
+    #wkng_gerber_field = fields.Boolean('Wkng Gerber Approved', default=False, readonly=True, help='The Gerber has been approved',
+    #        states={'draft': [('readonly', False)], 'sent': [('readonly',False)], 'bid': [('readonly',False)]})
     #hide_bid_date = fields.Boolean('Hide the bid deadline', default=False)
-    tooling_order = fields.Boolean(string='Is a tooling PO?', compute='_calc_tooling_order', help='is this a tooling-only po')
+    # tooling_order = fields.Boolean(string='Is a tooling PO?', compute='_calc_tooling_order', help='is this a tooling-only po')
