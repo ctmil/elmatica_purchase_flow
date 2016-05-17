@@ -42,9 +42,9 @@
                     <attribute name="string">Expected Shipping Date</attribute>
                 </field>
                 <field name="picking_type_id" position="after">
-                    <field name="consider_wkng_gerber" invisible="1" />
+                    <field name="consider_wkng_gerber" />
                     <!-- field name="tooling_order" invisible="1" / -->
-                    <field name="wkng_gerber_field" attrs="{'invisible': [('consider_wkng_gerber','=',False)]}"/>
+                    <!-- field name="wkng_gerber_field" attrs="{'invisible': [('consider_wkng_gerber','=',False)]}"/ -->
                 </field>
                 <!-- xpath expr="//button[@id='draft_confirm']" position="before">
                         <field name="wkng_gerber" invisible="1"/>
