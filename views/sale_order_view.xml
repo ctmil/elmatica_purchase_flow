@@ -21,6 +21,7 @@
               <field name="required_shipping_date" />
               <field name="purchase_orders" />
               <field name="tooling_purchase_order" />
+	      <field name="has_wkng_gerber" />
           </field>
         </field>
         </record>
