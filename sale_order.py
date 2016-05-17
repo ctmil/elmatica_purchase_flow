@@ -658,7 +658,7 @@ class sale_order(models.Model):
     has_super_order_id = fields.Boolean('Has super sales order', compute='_has_super_sales_order')
     is_portal_user = fields.Boolean('Is portal user', compute='_is_portal_user')
     purchase_orders = fields.Many2one('purchase.order', compute='_get_purchase_order', string='PCB Purchase Order')
-    tooling_purchase_order = fields.Many2one('purchase.order', compute='_get_tooling_purchase_order', string='Tooling Purchase Order')
+    # tooling_purchase_order = fields.Many2one('purchase.order', compute='_get_tooling_purchase_order', string='Tooling Purchase Order')
     delivery_dates = fields.Char('Delivery date', compute='_get_delivery_dates')
     requested_delivery_date = fields.Date('Requested delivery', required=True, readonly=False, default=fields.Date.today())
     required_shipping_date = fields.Date('Required shipping', compute='_calc_required_shipping', store=True)

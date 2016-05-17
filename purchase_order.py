@@ -408,22 +408,12 @@ class purchase_order(models.Model):
 
             order.customer_ref = order.sudo().sale_id.client_order_ref
 
-    #@api.depends('sale_id', 'partner_id')
-    #@api.multi
-    #def _calc_consider_wkng_gerber(self):
-    #    for order in self:
-    #        if not order.customer_id:
-    #            order.consider_wkng_gerber = False
-    #            continue
-    #        customer_wkng_gerber = order.customer_id.wkng_gerber
-    #        # _logger.info('%s Considering %s %s %s %s' % (order.name, order.is_tooling(), order.customer_id, customer_wkng_gerber, order.sudo().sale_id.super_order_id.wkng_gerber))
-    #        if order.is_tooling():
-    #            order.consider_wkng_gerber = False
-    #        # elif customer_wkng_gerber or order.sudo().sale_id.wkng_gerber:
-    #        elif customer_wkng_gerber:
-    #            order.consider_wkng_gerber = True
-    #        else:
-    #            order.consider_wkng_gerber = False
+    @api.one
+    def _calc_consider_wkng_gerber(self):
+	if self.sudo().sale_id:
+		self.consider_wkng_gerber = self.sudo().sale_id.has_wkng_gerber
+	else:
+		self.consider_wkng_gerber = False
 
     
     @api.multi
@@ -510,7 +500,7 @@ class purchase_order(models.Model):
     #expected_delivery = fields.Date('Expected delivery date', compute='_calc_expected_delivery')
     shipping_calc_status = fields.Char('Status', readonly=True)
     #wkng_gerber = fields.Boolean('Wkng Gerber', compute='_calc_wkng_gerber')
-    #consider_wkng_gerber = fields.Boolean('Partner Wkng Gerber', compute='_calc_consider_wkng_gerber', invisible=True)
+    consider_wkng_gerber = fields.Boolean('Partner Wkng Gerber', compute='_calc_consider_wkng_gerber', invisible=True)
     wkng_gerber_field = fields.Boolean('Wkng Gerber Approved', default=False, readonly=True, help='The Gerber has been approved',
             states={'draft': [('readonly', False)], 'sent': [('readonly',False)], 'bid': [('readonly',False)]})
     #hide_bid_date = fields.Boolean('Hide the bid deadline', default=False)
