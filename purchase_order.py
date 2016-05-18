@@ -240,7 +240,7 @@ class purchase_order(models.Model):
     #@api.onchange('dest_address_id', 'sale_id', 'shipping_days',
     #              'hub_days', 'buffer_days', 'customer_partner_days_add', 'requested_delivery')
     @api.onchange('dest_address_id', 'sale_id', 'shipping_days',
-                  'hub_days', 'buffer_days', 'customer_partner_days_add')
+                  'hub_days', 'customer_partner_days_add')
     def calculate_shipping_date(self):
         """
         requested_delivery -> When goods should be at the customer site
@@ -314,7 +314,7 @@ class purchase_order(models.Model):
         _logger.info('Reading planned date')
         x = self.minimum_planned_date
         _logger.info('Reading planned date %s', x)
-        print "NEW DATE", x
+        # print "NEW DATE", x
 
         self.shipping_calc_status = 'Calculated req shipping date %s' % fields.Date.to_string(required_shipping_date)
         return required_shipping_date
