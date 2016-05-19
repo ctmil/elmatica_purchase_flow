@@ -647,9 +647,9 @@ class sale_order(models.Model):
     @api.one
     def _compute_wkng_gerber(self):
 	if self.partner_id.wkng_gerber:
-		self.has_wkng_gerber = True
+		return True
 	else:
-		self.has_wkng_gerber = False
+		return False
 
 
     order_line = fields.One2many('sale.order.line', 'order_id', 'Order Lines', readonly=True, states={'manual': [('readonly', False)],'accept': [('readonly', False)], 'draft': [('readonly', False)], 'sent': [('readonly', False)]}, copy=True)
@@ -666,4 +666,4 @@ class sale_order(models.Model):
     main_product_line = fields.Many2one('sale.order.line', string='Main line', compute='_get_main_product_line')
     tooling_product_line = fields.Many2one('sale.order.line', string='Tooling line', compute='_get_tooling_product_line')
     purchase_delivery_date = fields.Date(related='purchase_orders.delivery_date')
-    has_wkng_gerber = fields.Boolean(string='Working Gerber',compute=_compute_wkng_gerber)
+    has_wkng_gerber = fields.Boolean(string='Working Gerber',default=_compute_wkng_gerber)
