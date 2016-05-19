@@ -411,7 +411,7 @@ class purchase_order(models.Model):
     @api.one
     def _calc_consider_wkng_gerber(self):
 	if self.sudo().sale_id:
-		self.consider_wkng_gerber = self.sudo().sale_id.has_wkng_gerber
+		self.consider_wkng_gerber = self.sudo().sale_id.wkng_gerber
 	else:
 		self.consider_wkng_gerber = False
 
