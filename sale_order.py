@@ -594,6 +594,7 @@ class sale_order(models.Model):
         for order in self:
             order.is_portal_user = bool(portal_groups)
 
+    """
     @api.multi
     def write(self, vals):
         info_product = self.get_info_product()
@@ -633,6 +634,7 @@ class sale_order(models.Model):
                         _logger.info('Adding infoline to SO %s', self)
 
         return super(sale_order, self).write(vals)
+        """
 
     @api.multi
     @api.depends('required_shipping_date', 'purchase_delivery_date')
@@ -643,14 +645,6 @@ class sale_order(models.Model):
                 order.required_shipping_date_not_met = False
             else:
                 order.required_shipping_date_not_met = order.required_shipping_date != order.purchase_delivery_date
-
-    @api.one
-    def _compute_wkng_gerber(self):
-	if self.partner_id.wkng_gerber:
-		return True
-	else:
-		return False
-
 
     order_line = fields.One2many('sale.order.line', 'order_id', 'Order Lines', readonly=True, states={'manual': [('readonly', False)],'accept': [('readonly', False)], 'draft': [('readonly', False)], 'sent': [('readonly', False)]}, copy=True)
     #order_line_addable = fields.One2many('sale.order.line', compute='_get_order_lines', inverse='_write_order_line')
@@ -666,4 +660,3 @@ class sale_order(models.Model):
     main_product_line = fields.Many2one('sale.order.line', string='Main line', compute='_get_main_product_line')
     tooling_product_line = fields.Many2one('sale.order.line', string='Tooling line', compute='_get_tooling_product_line')
     purchase_delivery_date = fields.Date(related='purchase_orders.delivery_date')
-    has_wkng_gerber = fields.Boolean(string='Working Gerber',default=_compute_wkng_gerber)
