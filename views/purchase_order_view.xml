@@ -38,6 +38,7 @@
                     <field name="partner_days_early"/>
                     <field name="partner_days_delay"/>
                 </field>
+                <field name="minimum_planned_date" position="replace" />
                 <!-- field name="minimum_planned_date" position="attributes">
                     <attribute name="string">Expected Shipping Date</attribute>
                 </field -->
@@ -109,6 +110,21 @@
                 </field>
             </field>
         </record -->
+
+        <record model="ir.ui.view" id="elmatica_purchase_order_adds_group">
+            <field name="name">elmatica.adds.minimum.planned.date</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="elmatica_purchase_flow.confirm_purchase_order_form"/>
+            <field name="arch" type="xml">
+                <field name="buffer_days" position="attributes">        
+                        <attribute name="groups">purchase.group_purchase_user</attribute>
+                </field>
+                <field name="date_order" position="after">
+                        <field name="minimum_planned_date" />
+                </field>
+            </field>
+        </record>
+
 
     </data>
 </openerp>
