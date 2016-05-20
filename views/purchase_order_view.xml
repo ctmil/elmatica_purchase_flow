@@ -38,9 +38,9 @@
                     <field name="partner_days_early"/>
                     <field name="partner_days_delay"/>
                 </field>
-                <field name="minimum_planned_date" position="attributes">
+                <!-- field name="minimum_planned_date" position="attributes">
                     <attribute name="string">Expected Shipping Date</attribute>
-                </field>
+                </field -->
                 <field name="picking_type_id" position="after">
                     <!-- field name="consider_wkng_gerber" / -->
                     <!-- field name="tooling_order" invisible="1" / -->
