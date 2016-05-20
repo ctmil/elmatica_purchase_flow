@@ -120,7 +120,7 @@
                         <attribute name="groups">purchase.group_purchase_user</attribute>
                 </field>
                 <field name="date_order" position="after">
-                        <field name="minimum_planned_date" />
+                        <field name="minimum_planned_date" string="Expected Shipping Date" />
                 </field>
             </field>
         </record>
