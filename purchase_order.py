@@ -500,8 +500,8 @@ class purchase_order(models.Model):
     #expected_delivery = fields.Date('Expected delivery date', compute='_calc_expected_delivery')
     shipping_calc_status = fields.Char('Status', readonly=True)
     #wkng_gerber = fields.Boolean('Wkng Gerber', compute='_calc_wkng_gerber')
-    consider_wkng_gerber = fields.Boolean('Partner Wkng Gerber', compute='_calc_consider_wkng_gerber', invisible=True)
-    wkng_gerber_field = fields.Boolean('Wkng Gerber Approved', default=False, readonly=True, help='The Gerber has been approved',
-            states={'draft': [('readonly', False)], 'sent': [('readonly',False)], 'bid': [('readonly',False)]})
+    #consider_wkng_gerber = fields.Boolean('Partner Wkng Gerber', compute='_calc_consider_wkng_gerber', invisible=True)
+    #wkng_gerber_field = fields.Boolean('Wkng Gerber Approved', default=False, readonly=True, help='The Gerber has been approved',
+    #        states={'draft': [('readonly', False)], 'sent': [('readonly',False)], 'bid': [('readonly',False)]})
     #hide_bid_date = fields.Boolean('Hide the bid deadline', default=False)
     # tooling_order = fields.Boolean(string='Is a tooling PO?', compute='_calc_tooling_order', help='is this a tooling-only po')

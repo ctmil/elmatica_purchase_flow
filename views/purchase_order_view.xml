@@ -42,16 +42,16 @@
                     <attribute name="string">Expected Shipping Date</attribute>
                 </field>
                 <field name="picking_type_id" position="after">
-                    <field name="consider_wkng_gerber" />
+                    <!-- field name="consider_wkng_gerber" / -->
                     <!-- field name="tooling_order" invisible="1" / -->
                     <!-- field name="wkng_gerber_field" attrs="{'invisible': [('consider_wkng_gerber','=',False)]}"/ -->
                 </field>
                 <!-- xpath expr="//button[@id='draft_confirm']" position="before">
                         <field name="wkng_gerber" invisible="1"/>
                     </xpath -->
-                <xpath expr="//button[@id='draft_confirm']" position="replace">
+                <!-- xpath expr="//button[@id='draft_confirm']" position="replace">
                         <button name="purchase_confirm" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('consider_wkng_gerber','=',False)]}" string="Confirm Order" id="draft_confirm"/>
-                    </xpath>
+                    </xpath -->
                 <!--
                 <xpath expr="//button[@id='bid_confirm']" position="replace">
                         <button name="purchase_confirm" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('wkng_gerber','=',False)]}" string="Confirm Order" class="oe_highlight" id="bid_confirm"/>
