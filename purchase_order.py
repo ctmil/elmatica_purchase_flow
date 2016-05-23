@@ -285,7 +285,7 @@ class purchase_order(models.Model):
             #return '2015-01-01'
             return None
 
-        def subtract_days(date, days):
+        def subtract_days(date, days=0):
             print "SUBTRACT_DAYS", date, days
             date -= datetime.timedelta(days=days)
             print "SUBTRACTED_DAYS", date, days
