@@ -358,7 +358,7 @@ class purchase_order(models.Model):
     def _calc_product_po(self):
         for order in self:
             if order.is_tooling():
-                order.matching_product_po = order.sale_id.purchase_orders
+                order.matching_product_po = order.sudo().sale_id.purchase_orders
             else:
                 order.matching_product_po = None
 
